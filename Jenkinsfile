@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+environment{
+    TESTVALUE = ${testvalue1}
+}
     // this section configures Jenkins options
     options {
 
@@ -26,16 +28,19 @@ pipeline {
     stages {
         stage('Requirements') {
             steps {
+                if (env.TESTVALUE == 'value1'){echo "Value = $env.TESTVALUE is valid."}
                 echo 'Installing requirements...'
             }
         }
         stage('Build') {
             steps {
+                 if (env.TESTVALUE == 'value2'){echo "Value = $env.TESTVALUE is valid."}
                 echo 'Building..'
             }
         }
         stage('Test') {
             steps {
+                 if (env.TESTVALUE == 'value3'){echo "Value = $env.TESTVALUE is valid."}
                 echo 'Testing..'
             }
         }
