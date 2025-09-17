@@ -18,6 +18,7 @@ pipeline {
     stages {
         stage('Requirements') {
             steps {
+                echo 'Starting Requirements stage...'
                 script {
                     if (env.TESTVALUE == 'value1') {
                         echo "Value = ${env.TESTVALUE} is valid."
@@ -28,6 +29,7 @@ pipeline {
         }
         stage('Build') {
             steps {
+                echo 'Starting Build stage...'
                 script {
                     if (env.TESTVALUE == 'value2') {
                         echo "Value = ${env.TESTVALUE} is valid."
@@ -38,6 +40,7 @@ pipeline {
         }
         stage('Test') {
             steps {
+                echo 'Starting Test stage...'
                 script {
                     if (env.TESTVALUE == 'value3') {
                         echo "Value = ${env.TESTVALUE} is valid."
@@ -48,6 +51,7 @@ pipeline {
         }
         stage('Report') {
             steps {
+                echo 'Starting Report stage...'
                 echo 'Reporting....'
             }
         }
